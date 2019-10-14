@@ -11,7 +11,7 @@ const getLastPrice = async (base_currency, currency) => {
         end_date : moment(new Date()).format("YYYY-MM-DD")
     })
     const response = await adapter.execute()
-    return R.last(response).rate
+    return R.last(response)
 }
 
 module.exports =  { getLastPrice }
