@@ -14,6 +14,12 @@ app.post("/api/ECB", async (req, res, next) => {
     res.send(response)
 })
 
+app.get("/api/ECB/GAS/LastPrice", async (req, res, next) => {
+    const adapter = require("./src/gas_adapters/ecbLastPrice")
+    const response = await adapter.getLastPrice(req.query.base_currency,req.query.currency)
+    res.send(response)
+})
+
 app.listen(PORT, () => {
     console.log("Server is up and listening in port", PORT)
 })
